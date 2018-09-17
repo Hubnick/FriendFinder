@@ -23,7 +23,7 @@
 
 // <!-- referenced from source -->
 
-
+var friendsArray = 
 [
     {
     "name": "Ahmed",
@@ -554,3 +554,5 @@
     ]
     }
     ]
+
+    module.exports = friendsArray
