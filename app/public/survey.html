@@ -5,7 +5,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>FiendFinder</title>
+  <title>FiendFinder Survey</title>
 
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -32,12 +32,32 @@
   border-style: solid;
 
   border-color: black;
+  border-width: 7px;
+}
+
+#surveybtn {
+  text-align: right;
+  /* background-color: black; */
+
 }
 
 .button {
   background-color: black;
 }
 
+.footer {
+  text-align: center;
+  background-color: black;
+  border-color: black;
+  border-width: 7px;
+}
+
+.btn {
+  border-style: solid;
+  border-width: 7px;
+  border-color: black;
+  color: black;
+}
 
 
 </style>
@@ -185,14 +205,17 @@
     <br>
 
     <!-- Submit Button -->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
-        aria-hidden="true"></i>
-      Submit</button>
+    <div id="surveybtn">
 
+      <button type="submit" class="btn btn-warning btn-lg" id="submit"><i class="fa fa-eye" aria-hidden="true"></i>
+        <strong> Submit to your new master...uh, Submit to find your Fiend!</strong></button>
+    </div>
     <hr>
     <footer class="footer">
-      <div class="container">
+      <div class="footer">
+        <br>
         <p><a href="/api/fiends">API Fiends List</a></p>
+
       </div>
     </footer>
 
@@ -223,19 +246,19 @@
   <script type="text/javascript">
     // Chosen CSS
     var config = {
-      // ".chosen-select": {},
-      // ".chosen-select-deselect": {
-      //   allow_single_deselect: true
-      // },
-      // // ".chosen-select-no-single": {
-      //   disable_search_threshold: 10
-      // },
-      // ".chosen-select-no-results": {
-      //   no_results_text: "Oops, nothing found!"
-      // },
-      // ".chosen-select-width": {
-      //   width: "95%"
-      // }
+      ".chosen-select": {},
+      ".chosen-select-deselect": {
+        allow_single_deselect: true
+      },
+      ".chosen-select-no-single": {
+        disable_search_threshold: 10
+      },
+      ".chosen-select-no-results": {
+        no_results_text: "Oops, nothing found!"
+      },
+      ".chosen-select-width": {
+        width: "95%"
+      }
     };
 
     for (var selector in config) {
@@ -298,7 +321,7 @@
 
         });
       } else {
-        alert("Please fill out all fields before submitting!");
+        alert("Please fill out all fields before submitting TO YOUR DOOM!");
       }
     });
   </script>

@@ -6,9 +6,9 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>FriendFinder</title>
+  <title>FiendFinder Home</title>
 
-  <!-- Latest compiled and minified CSS & JS -->
+  <!-- Not really the latest compiled and minified CSS & JS ... -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -20,7 +20,7 @@
 
 <style>
 
-body {
+  body {
   font-family: cursive;
   background-color: slategrey
 }
@@ -35,6 +35,23 @@ body {
   background-color: black;
 }
 
+#surveybtn {
+  text-align: right;
+  /* background-color: black; */
+
+}
+
+.footer {
+  text-align: center;
+}
+
+.btn {
+  border-style: solid;
+  border-width: 7px;
+  border-color: black;
+  color: black
+}
+
 </style>
 
 
@@ -45,14 +62,17 @@ body {
     <div class="jumbotron bg-dark text-white text-cursive">
       <h1><i class="fa fa-facebook-square fa-w-14 fa-spin fa-lg" aria-hidden="true"></i> Fiend Finder</h1>
       <hr>
-      <h2 >Answer a few basic questions...if you <strong>dare</strong> </h2>
+      <h2>Answer a few basic questions...if you <strong>dare</strong> </h2>
       <h2>... then find the <strong>fiend</strong> with the greatest compatibility!</h2>
       <br>
 
-      <div>
-        <a href="/survey"><button type="button" class="btn btn-link"><h4>
-          <!-- <span class="glyphicon glyphicon-list-alt"></span>  -->
-          <strong>Go to Survey</strong></h4></button></a>
+      <div id="surveybtn">
+        <a href="/survey"><button type="button" class="btn btn-warning">
+            <h4><span class="glyphicon glyphicon-alert"></span>
+              <strong>Go to Survey</strong></h4>
+          </button></a>
+
+        
       </div>
 
     </div>
