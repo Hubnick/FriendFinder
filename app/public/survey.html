@@ -233,7 +233,7 @@
         </div>
         <div class="modal-body">
           <h2 id="match-name"></h2>
-          <!-- <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt=""> -->
+          <img id="match-img" src="" alt="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -244,86 +244,163 @@
   </div>
 
   <script type="text/javascript">
-    // Chosen CSS
-    var config = {
-      ".chosen-select": {},
-      ".chosen-select-deselect": {
-        allow_single_deselect: true
-      },
-      ".chosen-select-no-single": {
-        disable_search_threshold: 10
-      },
-      ".chosen-select-no-results": {
-        no_results_text: "Oops, nothing found!"
-      },
-      ".chosen-select-width": {
-        width: "95%"
-      }
-    };
 
-    for (var selector in config) {
-      $(selector).chosen(config[selector]);
-    }
+    const add = (a, b) => a + b
 
-    // Capture the form inputs
+
     $("#submit").on("click", function (event) {
       event.preventDefault();
 
-      // Form validation
-      function validateForm() {
-        var isValid = true;
+      //first we see if any of the forms haven't been filled out
+      function formFilledOut() {
+        var isFilled = true
+
         $(".form-control").each(function () {
           if ($(this).val() === "") {
-            isValid = false;
+            isFilled = false
           }
         });
 
         $(".chosen-select").each(function () {
 
           if ($(this).val() === "") {
-            isValid = false;
+            isFilled = false;
           }
         });
-        return isValid;
+        return isFilled;
       }
-
-      if (validateForm()) {
-        var userData = {
-          name: $("#name").val(),
-          scores: [
-            $("#q1").val(),
-            $("#q2").val(),
-            $("#q3").val(),
-            $("#q4").val(),
-            $("#q5").val(),
-            $("#q6").val(),
-            $("#q7").val(),
-            $("#q8").val(),
-            $("#q9").val(),
-            $("#q10").val()
-          ]
-        };
-
-        parsedScores = [];
-
-        for (i = 0; i < userData.scores.length; i++) {
-          var n = parseInt(userData.scores[i]);
-          parsedScores.push(n);
-        }
-
-        console.log(parsedScores);
-
-        $.post("/api/fiends", userData, function (data) {
-
-          $("#match-name").text(data[0].name);
-
-          $("#results-modal").modal("toggle");
-
-        });
-      } else {
+      if (!formFilledOut()) {
         alert("Please fill out all fields before submitting TO YOUR DOOM!");
       }
-    });
+      //then if all forms have been filled, we find the fiend!
+      else {
+        var pawnAnswers = [parseInt($("#q1").val()),
+        parseInt($("#q2").val()),
+        parseInt($("#q3").val()),
+        parseInt($("#q4").val()),
+        parseInt($("#q5").val()),
+        parseInt($("#q6").val()),
+        parseInt($("#q7").val()),
+        parseInt($("#q8").val()),
+        parseInt($("#q9").val()),
+        parseInt($("#q10").val())]
+
+        const pawnAnswersSum = pawnAnswers.reduce(function (sum, score) {
+          return sum + score;
+        }, 0);
+
+
+        var pawnData = {
+          pawnName: $("#name").val(),
+          pawnPhoto: $("#photo").val(),
+          pawnScore: pawnAnswersSum
+        }
+
+        console.log(pawnData);
+
+
+
+        $.post("/api/best", pawnData, function (data) {
+          console.log(data);
+          $("#match-name").text(data.fiendName);
+          $("#match-img").attr("src", data.foulPhoto)
+          $("#match-img").height(200);
+          $("#match-img").height(200);
+          console.log(data.foulPhoto)
+        });
+
+        // $("#resultsModal").modal("show");
+        $("#results-modal").modal("toggle");
+
+      }
+    })
+
+
+
+
+// <!-- 
+
+
+//     // Chosen CSS
+//     var config = {
+//       ".chosen-select": {},
+//       ".chosen-select-deselect": {
+//         allow_single_deselect: true
+//       },
+//       ".chosen-select-no-single": {
+//         disable_search_threshold: 10
+//       },
+//       ".chosen-select-no-results": {
+//         no_results_text: "Oops, nothing found!"
+//       },
+//       ".chosen-select-width": {
+//         width: "95%"
+//       }
+//     };
+
+//     for (var selector in config) {
+//       $(selector).chosen(config[selector]);
+//     }
+
+//     // Capture the form inputs
+//     $("#submit").on("click", function (event) {
+//       event.preventDefault();
+
+//       // Form validation
+//       function validateForm() {
+//         var isValid = true;
+//         $(".form-control").each(function () {
+//           if ($(this).val() === "") {
+//             isValid = false;
+//           }
+//         });
+
+//         $(".chosen-select").each(function () {
+
+//           if ($(this).val() === "") {
+//             isValid = false;
+//           }
+//         });
+//         return isValid;
+//       }
+
+//       if (validateForm()) {
+//         var userData = {
+//           name: $("#name").val(),
+//           scores: [
+//             $("#q1").val(),
+//             $("#q2").val(),
+//             $("#q3").val(),
+//             $("#q4").val(),
+//             $("#q5").val(),
+//             $("#q6").val(),
+//             $("#q7").val(),
+//             $("#q8").val(),
+//             $("#q9").val(),
+//             $("#q10").val()
+//           ]
+//         };
+
+//         parsedScores = [];
+
+//         for (i = 0; i < userData.scores.length; i++) {
+//           var n = parseInt(userData.scores[i]);
+//           parsedScores.push(n);
+//         }
+
+//         console.log(parsedScores);
+
+//         $.post("/api/fiends", userData, function (data) {
+
+//           $("#match-name").text(data[0].name);
+
+//           $("#results-modal").modal("toggle");
+
+//         });
+//       } else {
+//         alert("Please fill out all fields before submitting TO YOUR DOOM!");
+//       }
+//     }); -->
   </script>
 
 </body>
