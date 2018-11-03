@@ -214,7 +214,8 @@
     <footer class="footer">
       <div class="footer">
         <br>
-        <p><a href="/api/fiends">API Fiends List</a></p>
+        <button type="seeEm" class="btn btn-warning btn-lg" id="seeEm"><i class="fa fa-eye" aria-hidden="true"></i>
+          <strong> See All Fiends!</strong></button>
 
       </div>
     </footer>
@@ -302,105 +303,58 @@
 
         $.post("/api/best", pawnData, function (data) {
           console.log(data);
-          $("#match-name").text(data.fiendName);
-          $("#match-img").attr("src", data.foulPhoto)
-          $("#match-img").height(200);
-          $("#match-img").height(200);
-          console.log(data.foulPhoto)
+
+          var result = $('<div>')
+
+          var temp = `
+            <div class="col=sm-6">
+            <h2>${data.fiendName}</h2>
+            <img  src="${data.foulPhoto}" height="200" alt="${data.foulPhoto}">
+            </div>
+          `
+          result.append(temp)
+
+          $('.modal-body').html(result)
         });
 
-        // $("#resultsModal").modal("show");
         $("#results-modal").modal("toggle");
 
       }
     })
 
+    $("#seeEm").on("click", function (event) {
+      // alert("clicked")
+      event.preventDefault();
 
+      $.get("/api/fiends", function (data) {
+        console.log(data)
+        var result = $('<div>')
+        for (var i = 0; i < data.length; i++) {
+          var currentFiend = data[i];
 
+          console.log(currentFiend)
+          var temp = `
+            <div class="col=sm-6">
+            <h2>${data[i].fiendName}</h2>
+            <img  src="${data[i].foulPhoto}" height="200" alt="${data[i].foulPhoto}">
+            </div>
+          `
+          result.append(temp)
 
-// <!-- 
+    
+        }
+        $('.modal-body').html(result)
+      })
 
+      $("#results-modal").modal("toggle");
 
-//     // Chosen CSS
-//     var config = {
-//       ".chosen-select": {},
-//       ".chosen-select-deselect": {
-//         allow_single_deselect: true
-//       },
-//       ".chosen-select-no-single": {
-//         disable_search_threshold: 10
-//       },
-//       ".chosen-select-no-results": {
-//         no_results_text: "Oops, nothing found!"
-//       },
-//       ".chosen-select-width": {
-//         width: "95%"
-//       }
-//     };
+    })
 
-//     for (var selector in config) {
-//       $(selector).chosen(config[selector]);
-//     }
+    // $('#results-modal').on('hidden.bs.modal', function () {
+    //   // do something…
+    //   // $('.modal-body').clear
+    // })
 
-//     // Capture the form inputs
-//     $("#submit").on("click", function (event) {
-//       event.preventDefault();
-
-//       // Form validation
-//       function validateForm() {
-//         var isValid = true;
-//         $(".form-control").each(function () {
-//           if ($(this).val() === "") {
-//             isValid = false;
-//           }
-//         });
-
-//         $(".chosen-select").each(function () {
-
-//           if ($(this).val() === "") {
-//             isValid = false;
-//           }
-//         });
-//         return isValid;
-//       }
-
-//       if (validateForm()) {
-//         var userData = {
-//           name: $("#name").val(),
-//           scores: [
-//             $("#q1").val(),
-//             $("#q2").val(),
-//             $("#q3").val(),
-//             $("#q4").val(),
-//             $("#q5").val(),
-//             $("#q6").val(),
-//             $("#q7").val(),
-//             $("#q8").val(),
-//             $("#q9").val(),
-//             $("#q10").val()
-//           ]
-//         };
-
-//         parsedScores = [];
-
-//         for (i = 0; i < userData.scores.length; i++) {
-//           var n = parseInt(userData.scores[i]);
-//           parsedScores.push(n);
-//         }
-
-//         console.log(parsedScores);
-
-//         $.post("/api/fiends", userData, function (data) {
-
-//           $("#match-name").text(data[0].name);
-
-//           $("#results-modal").modal("toggle");
-
-//         });
-//       } else {
-//         alert("Please fill out all fields before submitting TO YOUR DOOM!");
-//       }
-//     }); -->
   </script>
 
 </body>

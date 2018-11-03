@@ -19,7 +19,7 @@ var fiendsData =
         },
         {
             "fiendName": "Umbrahag",
-            "foulPhoto": ,
+            "foulPhoto": "https://cdnb.artstation.com/p/assets/images/images/001/265/001/large/jan-vidra-serafein-fixed.jpg?1443927849",
             "scores": [
                 4,
                 2,
@@ -36,7 +36,7 @@ var fiendsData =
         },
         {
             "fiendName": "Vaporflayer",
-            "foulPhoto": ,
+            "foulPhoto": "https://cdnb.artstation.com/p/assets/images/images/013/515/873/large/anna-larionova-16.jpg?1539949074",
             "scores": [
                 5,
                 2,
@@ -53,7 +53,7 @@ var fiendsData =
         },
         {
             "fiendName": "Coffinling",
-            "foulPhoto": ,
+            "foulPhoto": "https://cdnb.artstation.com/p/assets/images/images/007/747/163/large/yasar-vurdem-concept-shadow-by-vurdem-dbqv5sj.jpg?1508249009",
             "scores": [
                 3,
                 3,
@@ -70,7 +70,7 @@ var fiendsData =
         },
         {
             "fiendName": "The Slender Cider Spider",
-            "foulPhoto": ,
+            "foulPhoto": "https://cdnb.artstation.com/p/assets/images/images/013/729/641/large/julia-pishtar-pump02.jpg?1540888099",
             "scores": [
                 4,
                 3,
@@ -87,7 +87,7 @@ var fiendsData =
         },
         {
             "fiendName": "The Muted Abnormality",
-            "foulPhoto": ,
+            "foulPhoto": "https://cdna.artstation.com/p/assets/images/images/012/913/682/large/svetlin-velinov-loxodon-restorer.jpg?1537165338",
             "scores": [
                 5,
                 5,
@@ -104,7 +104,7 @@ var fiendsData =
         },
         {
             "fiendName": "The Infamous Anomaly",
-            "foulPhoto": ,
+            "foulPhoto": "https://cdnb.artstation.com/p/assets/images/images/009/400/995/large/andy-sutton-baby-dragon-v001as.jpg",
             "scores": [
                 4,
                 2,
@@ -121,7 +121,7 @@ var fiendsData =
         },
         {
             "fiendName": "Dawngolem",
-            "foulPhoto": ,
+            "foulPhoto": "https://cdna.artstation.com/p/assets/images/images/008/813/914/large/kasita-dw-sj18-05-main1.jpg?1515475887",
             "scores": [
                 2,
                 3,
@@ -138,7 +138,7 @@ var fiendsData =
         },
         {
             "fiendName": "Rotmutant",
-            "foulPhoto": ,
+            "foulPhoto": "https://cdna.artstation.com/p/assets/images/images/008/676/980/large/anatoliy-borisevich-candle-golem.jpg",
             "scores": [
                 1,
                 5,
@@ -154,4 +154,4 @@ var fiendsData =
         }
     ];
 
-// module.exports = fiendsData;
+module.exports = fiendsData;

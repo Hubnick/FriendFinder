@@ -19,4 +19,4 @@ var fiendsData =
         }
     ];
 
-module.exports = fiendsData;
+// module.exports = fiendsData;
