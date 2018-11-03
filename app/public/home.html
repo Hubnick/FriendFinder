@@ -18,26 +18,48 @@
 
 </head>
 
+<style>
+
+body {
+  font-family: cursive;
+  background-color: slategrey
+}
+.container {
+  background-color: black;
+}
+.jumbotron {
+  background-color: orange;
+}
+
+.button {
+  background-color: black;
+}
+
+</style>
+
+
 <body>
 
   <div class="container">
 
-    <div class="jumbotron">
-      <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
+    <div class="jumbotron bg-dark text-white text-cursive">
+      <h1><i class="fa fa-facebook-square fa-w-14 fa-spin fa-lg" aria-hidden="true"></i> Fiend Finder</h1>
       <hr>
-      <h2>Answer a few basic questions. </h2>
-      <h2>Then find the friend with the greatest compatibility!</h2>
+      <h2 >Answer a few basic questions...if you <strong>dare</strong> </h2>
+      <h2>... then find the <strong>fiend</strong> with the greatest compatibility!</h2>
       <br>
 
       <div>
-        <a href="/survey"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span> Go to Survey</h4></button></a>
+        <a href="/survey"><button type="button" class="btn btn-link"><h4>
+          <!-- <span class="glyphicon glyphicon-list-alt"></span>  -->
+          <strong>Go to Survey</strong></h4></button></a>
       </div>
 
     </div>
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
+        <p><a href="/api/fiends">API Fiends List</a></p>
       </div>
     </footer>
 

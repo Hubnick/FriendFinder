@@ -2,7 +2,6 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
-var path = require("path");
 
 // Sets up the Express App
 // =============================================================
@@ -13,6 +12,9 @@ var PORT = process.env.PORT || 9000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// app.use(express.static(path.join(__dirname, 'public'))); //Serves resources from public folder
+
 
 // app.get("/", function(req, res) {
 //   res.sendFile(path.join(__dirname, "/app/public/home.html"));

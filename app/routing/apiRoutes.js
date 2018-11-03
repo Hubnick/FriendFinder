@@ -1,17 +1,17 @@
 
-var friendsData = require("../data/friends");
+var fiends = require("../data/fiends");
 
 
 module.exports = function (app) {
 
   // Displays all characters
 
-  app.get("/api/friends", function (req, res) {
-    res.json(friendsData)
+  app.get("/api/fiends", function (req, res) {
+    res.json(fiends)
   });
 
 
-  app.post("/api/friends", function (req, res) {
+  app.post("/api/fiends", function (req, res) {
 
 
     //  * Convert each user's results into a simple array of numbers (ex: `["5", 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
@@ -39,7 +39,7 @@ module.exports = function (app) {
       //      * Total Difference: **2 + 1 + 2 =** **_5_**
       //  * Remember to use the absolute value of the differences. Put another way: no negative solutions! Your app should calculate both `5-3` and `3-5` as `2`, and so on. 
       //  * The closest match will be the user with the least amount of difference.
-      res.json(friendsData)
+      res.json(fiendsData)
     });
 
 };
